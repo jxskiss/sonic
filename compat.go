@@ -129,3 +129,8 @@ func Pretouch(vt reflect.Type, opts ...option.CompileOption) error {
     return nil
 }
 
+// IsCompatMode tells whether sonic is working in compat mode which
+// fallbacks to encoding/json in the standard library.
+func IsCompatMode() bool {
+	return true
+}

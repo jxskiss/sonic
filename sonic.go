@@ -20,13 +20,13 @@
 package sonic
 
 import (
-    `io`
-    `reflect`
+	`io`
+	`reflect`
 
-    `github.com/bytedance/sonic/decoder`
-    `github.com/bytedance/sonic/encoder`
-    `github.com/bytedance/sonic/option`
-    `github.com/bytedance/sonic/internal/rt`
+	`github.com/bytedance/sonic/decoder`
+	`github.com/bytedance/sonic/encoder`
+	`github.com/bytedance/sonic/internal/rt`
+	`github.com/bytedance/sonic/option`
 )
 
 type frozenConfig struct {
@@ -158,4 +158,10 @@ func Pretouch(vt reflect.Type, opts ...option.CompileOption) error {
 		return err
 	}
 	return nil
+}
+
+// IsCompatMode tells whether sonic is working in compat mode which
+// fallbacks to encoding/json in the standard library.
+func IsCompatMode() bool {
+	return false
 }
